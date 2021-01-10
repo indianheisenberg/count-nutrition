@@ -1,0 +1,47 @@
+@media(max-width:768px){
+    h1{
+        font-size: 20px;
+    }
+}
+@media(min-width:768px){
+    h1{
+        font-size: 36px;
+    }
+}
+
+@media(max-width:768px){
+    h3{
+        font-size: 15px;
+        font-family: 'Roboto';
+    }
+}
+@media(min-width:768px){
+    h3{
+        font-size: 20px;
+        font-family: 'Roboto';
+    }
+}
+
+@media(max-width:768px){
+    h6{
+        font-size: 11px;
+        font-family: 'Nunito';
+    }
+}
+@media(min-width:768px){
+    h6{
+        font-size: 16px;
+        font-family: 'Nunito';
+    }
+}
+
+mat-card{
+    background-color: white;
+}
+
+.home-heading{
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 36px;
+}

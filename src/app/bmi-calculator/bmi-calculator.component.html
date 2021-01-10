@@ -1,0 +1,121 @@
+<div class="container">
+<div>
+  <button mat-button class="primary" routerLink="">
+    <mat-icon>arrow_back</mat-icon>Back
+  </button>
+  <h1 style="text-align: center">BMI Calculator</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form [formGroup]="BMIForm" (submit)="calculate()" novalidate>
+      <div style="display: flex; flex-direction: row">
+        <mat-form-field appearance="outline" style="width: 50%;">
+          <mat-label>Age</mat-label>
+          <input
+            required
+            matInput
+            placeholder="Age"
+            (keypress)="numberOnly($event)"
+            type="text"
+            formControlName="age"
+          />
+
+          <mat-hint>age in years</mat-hint>
+          <!-- error -->
+          <mat-error
+            *ngIf="BMIForm.controls.age.touched && BMIForm.controls.age.invalid"
+          >
+            <span *ngIf="BMIForm.controls.age.errors?.required"
+              >Age is mandatory.</span
+            >
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 50%;">
+          <mat-label>Height</mat-label>
+          <input
+            required
+            matInput
+            placeholder="Height"
+            (keypress)="numberOnly($event)"
+            formControlName="height"
+          />
+
+          <mat-hint>height in cm</mat-hint>
+          <!-- error -->
+          <mat-error
+            *ngIf="
+              BMIForm.controls.height.touched && BMIForm.controls.height.invalid
+            "
+          >
+            <span *ngIf="BMIForm.controls.height.errors?.required"
+              >Height is mandatory.</span
+            >
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div style="display: flex; flex-direction: row">
+        <mat-form-field appearance="outline" style="width: 50%;">
+          <mat-label>Weight</mat-label>
+          <input
+            required
+            matInput
+            placeholder="Weight"
+            (keypress)="numberOnly($event)"
+            formControlName="weight"
+          />
+
+          <mat-hint>weight in kg</mat-hint>
+          <!-- error -->
+          <mat-error
+            *ngIf="
+              BMIForm.controls.weight.touched && BMIForm.controls.weight.invalid
+            "
+          >
+            <span *ngIf="BMIForm.controls.weight.errors?.required"
+              >Weight is mandatory.</span
+            >
+          </mat-error>
+        </mat-form-field>
+        <mat-radio-group
+          class="radio"
+          style="margin-left: 10px"
+          formControlName="gender"
+        >
+          <mat-radio-button value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
+
+          <mat-error
+            *ngIf="
+              BMIForm.controls.gender.touched && BMIForm.controls.gender.invalid
+            "
+          >
+            <span *ngIf="BMIForm.controls.gender.errors?.required"
+              >Please select Gender</span
+            >
+          </mat-error>
+        </mat-radio-group>
+      </div>
+      <p style="text-align: center">
+        <button mat-raised-button color="primary" [disabled]="!validate()">
+          Calculate
+        </button>
+      </p>
+    </form>
+    <div *ngIf="calculatedBMI" style="text-align: center">
+      <span style="font-weight: bold" [ngStyle]="{ color: category?.color }"
+        >Your BMI is {{ calculatedBMI }} Kg/&#13217;</span
+      >
+      <br />
+      <span style="font-weight: bold"
+        >Your BMI category is
+        <span [ngStyle]="{ color: category?.color }">{{
+          category.type
+        }}</span></span
+      >
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+</div>

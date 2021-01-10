@@ -1,0 +1,38 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  height: auto;
+  width: 224px;
+  outline: none;
+  padding: 10px;
+ 
+}
+
+.toolbar {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  height: 80px;
+  background-color: #fff;
+  padding: 0 5px;
+  text-transform: uppercase !important;
+}
+
+.nav-buttons{
+    font-size: 15px;
+    font-family: 'Nunito';
+    font-weight: 700; 
+    margin-right: 20px;
+    min-width: 100px;
+  color:#7b1fa2 !important;
+  &:hover{
+    font-size: 20px;
+    background: transparent;
+  }
+  }
+
+  .center{
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
